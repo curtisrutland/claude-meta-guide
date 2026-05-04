@@ -79,3 +79,28 @@ Response:
 Designed in [Claude Design](https://claude.ai/design) and exported as a handoff bundle. The original
 prototype files (HTML + JSX, Babel-in-browser) are preserved in `design-source/` as the
 implementation spec.
+
+## Implementation cost (estimated)
+
+The conversion from the design handoff into the Next.js app you can browse at the link above was
+done across a single Claude Code session with **Claude Sonnet 4.x** (1M context). I don't have
+exact telemetry, so the numbers below are honest order-of-magnitude estimates based on the work
+that landed in this branch — file writes, edits, bash invocations, build/verification — plus the
+tool-result and conversation-history input that fed each turn.
+
+| Bucket                                  | Tokens (approx)   | Rate (Sonnet 4.x) | Cost      |
+| --------------------------------------- | ----------------- | ----------------- | --------- |
+| Output (code, edits, responses)         | ~45,000           | $15.00 / MTok     | ~$0.68    |
+| Input — uncached (new tool results, edits) | ~250,000       | $3.00 / MTok      | ~$0.75    |
+| Input — cache reads (repeated context)  | ~2,700,000        | $0.30 / MTok      | ~$0.81    |
+| **Estimated total**                     | **~3,000,000**    |                   | **~$2.25**|
+
+Notes:
+
+- This **only covers the engineering work** (handoff → Next.js → deploy). The original 14-minute
+  Claude Design chat that produced the prototype — the "~$0.40 in tokens" called out inside Lesson 00 —
+  is not included here.
+- Claude Code uses aggressive prompt caching, so most of the ~3M raw input tokens are 90%-discounted
+  cache reads. Without caching the input bill alone would be ~$9.
+- Real spend depends on which Sonnet variant is in use; the rates above are typical for Sonnet 4.5
+  pricing under a 200k-token request budget.
