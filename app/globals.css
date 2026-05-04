@@ -299,7 +299,7 @@ body {
   color: var(--accent);
   font-weight: 500;
 }
-.bottombar .tweaks-trigger {
+.bottombar .pill-action {
   appearance: none;
   background: transparent;
   border: 1px solid var(--line-2);
@@ -310,8 +310,9 @@ body {
   border-radius: 3px;
   cursor: pointer;
   letter-spacing: 0.04em;
+  text-decoration: none;
 }
-.bottombar .tweaks-trigger:hover {
+.bottombar .pill-action:hover {
   border-color: var(--accent);
   color: var(--accent);
 }

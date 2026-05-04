@@ -196,7 +196,15 @@ export default function AppShell() {
             <kbd>G</kbd> end
           </span>
           <span className="spacer" />
-          <button className="tweaks-trigger" onClick={openTweaks}>
+          <a
+            className="pill-action"
+            href="https://github.com/curtisrutland/claude-meta-guide"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            see on github
+          </a>
+          <button className="pill-action" onClick={openTweaks}>
             tweaks
           </button>
           <span className="git">
