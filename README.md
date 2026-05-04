@@ -4,6 +4,8 @@ An 8-lesson interactive tour built to convince an engineering org that Claude De
 hiring or contracting out design work. The guide is itself a working artifact built on the platform
 it teaches.
 
+**Live demo:** [claude-meta-guide.vercel.app](https://claude-meta-guide.vercel.app/)
+
 ## Stack
 
 - **Next.js 16** (App Router, Turbopack)
